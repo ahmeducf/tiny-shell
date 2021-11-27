@@ -41,14 +41,10 @@ int main(int argc, char **argv)
     }
 
     /* Install the signal handlers */
-
-    /* These are the ones you will need to implement */
     Signal(SIGINT,  sigint_handler);   /* ctrl-c */
     Signal(SIGTSTP, sigtstp_handler);  /* ctrl-z */
     Signal(SIGCHLD, sigchld_handler);  /* Terminated or stopped child */
-
-    /* This one provides a clean way to kill the shell */
-    Signal(SIGQUIT, sigquit_handler); 
+    Signal(SIGQUIT, sigquit_handler);  /* A clean way to kill the shell */
 
     /* Initialize the job list */
     initjobs(jobs);
